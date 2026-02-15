@@ -6,5 +6,5 @@ RUN mvn clean package
 
 # Stage 2: Run in Tomcat
 FROM tomcat:latest
-COPY --from=builder ./webapp.war /usr/local/tomcat/webapps
+COPY --from=builder /app/webapp/target/webapp.war /usr/local/tomcat/webapps
 RUN cp -r /usr/local/tomcat/webapps.dist/* /usr/local/tomcat/webapps
